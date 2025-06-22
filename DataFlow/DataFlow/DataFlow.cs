@@ -9,14 +9,14 @@ namespace Generics
     internal class DataFlow<T> : IDataFlow<T>
         where T : class
     {
-        private List<IBlock<T>> _data;
+        private readonly List<IBlock<T>> _data = new List<IBlock<T>>();
 
-        void IDataFlow<T>.AddBlock(IBlock<T> block)
+        public void AddBlock(IBlock<T> block)
         {
             _data.Add(block);
         }
 
-        T IDataFlow<T>.RunFlow(T input)
+        public T RunFlow(T input)
         {
             T value = input;
             _data.ForEach(item =>
