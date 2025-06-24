@@ -7,5 +7,5 @@ dataFlow.AddBlock(new ReverseBlock());
 dataFlow.AddBlock(new ReplaceAWithSixBlock());
 
 
-dataFlow.RunFlow("MamAs6");
+Console.WriteLine(dataFlow.RunFlow("MamAs6"));
 
