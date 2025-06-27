@@ -7,17 +7,24 @@
 
         public void AddBlock(IBlock<T> block)
         {
-            _data.Add(block);
+            if (block != null)
+            {
+                _data.Add(block);
+            }
         }
 
         public T RunFlow(T input)
         {
-            T value = input;
-            _data.ForEach(item =>
+            if (input != null)
             {
-                value = item.Process(value);
-            });
-            return value;
+                T value = input;
+                _data.ForEach(item =>
+                {
+                    value = item.Process(value);
+                });
+                return value;
+            }
+            return input;
         }
 
     }
